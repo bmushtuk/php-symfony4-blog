@@ -1,14 +1,12 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-<article>
-    <h2 class="mb-2">Title of the article</h2>
-    <div class="metadata">Created on 06.09.2018 in the field of politics</div>
+<article id="{{ article.id }}">
+    <h2 class="mt-5 mb-2">{{ article.title }}</h2>
+    <div class="metadata">Created on {{ article.createdAt | date ('d/m/Y')}} in the field of politics</div>
     <div class="content">
-        <img src="http://placehold.it/350x150" alt="Main Image">
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quae libero odio inventore reiciendis, natus ea!</p>
-        <p>Hic rem magnam possimus et, modi voluptas porro iure nesciunt maiores, eaque cupiditate illum laborum.</p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde dolores exercitationem saepe eligendi officia est culpa rerum? Aut fugit, ut deserunt iure iusto beatae dolores, et nostrum sed, neque error natus commodi quia ratione libero veritatis molestiae nobis accusantium consequuntur dolor. Nulla, aut maiores doloremque vero modi ut expedita praesentium!</p>
+        <img src="{{ article.image }}" alt="Main Image">
+        {{ article.content | raw}}
     </div>
 </article>
 {% endblock %}

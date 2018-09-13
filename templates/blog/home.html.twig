@@ -1,40 +1,20 @@
 {% extends 'base.html.twig' %}
 {% block body %}
-<h1 class="is-size-1 mt-5" style="animation-name: bounce; animation-duration: 5s"> {{ title }}</h1>
+<h1 class="is-size-1 mt-5" style="animation-name: bounce; animation-duration: 5s"> Welcome to my blog!</h1>
 
 <section class="articles">
-<article>
-    <h2 class="mb-2">Title of the article</h2>
-    <div class="metadata">Created on 06.09.2018 in the field of politics</div>
-    <div class="content">
-        <img class="animated bounce" src="http://placehold.it/350x150" alt="Main Image">
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quae libero odio inventore reiciendis, natus ea!</p>
-        <p>Hic rem magnam possimus et, modi voluptas porro iure nesciunt maiores, eaque cupiditate illum laborum.</p>
-        <a href="{{ path('blog_show') }}" class="btn btn-primary mb-4">Continue reading</a>
-    </div>
-</article>
-<article>
-    <h2 class="mb-2">Title of the article</h2>
-    <div class="metadata">Created on 06.09.2018 in the field of politics</div>
-    <div class="content">
-        <img class="animated bounce" src="http://placehold.it/350x150" alt="Main Image">
-        <p>Dolores sint magni officiis velit quam numquam tempore eum laudantium, deserunt perspiciatis in! Voluptas, laborum.</p>
-        <p>Reprehenderit neque dolore itaque obcaecati iure architecto accusantium voluptas nesciunt perferendis? Eum dolore veritatis est?</p>
-        <a href="{{ path('blog_show') }}" class="btn btn-primary mb-4">Continue reading</a>
-    </div>
-</article>
-<article>
-    <h2 class="mb-2">Title of the article</h2>
-    <div class="metadata">Created on 06.09.2018 in the field of politics</div>
-    <div class="content">
-        <img class="animated bounce" src="http://placehold.it/350x150" alt="Main Image">
-        <p>Error neque officiis iusto, quas enim voluptates aut, veniam minima ab corporis ad illo fugiat.</p>
-        <p>Quod repellat numquam placeat explicabo dolores beatae, nostrum laborum, laudantium tempora dignissimos id assumenda soluta.</p>
-        <a href="{{ path('blog_show') }}" class="btn btn-primary mb-4">Continue reading</a>
-    </div>
-</article>
-
-
+    {% for article in articles %}
+        <article>
+            <h2 class="mb-2">{{ article.title }}</h2>
+            <div class="metadata">Created on 06.09.2018 in the field of politics</div>
+            <div class="content">
+                <img class="animated bounce" src="http://placehold.it/350x150" alt="Main Image">
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quae libero odio inventore reiciendis, natus ea!</p>
+                <p>Hic rem magnam possimus et, modi voluptas porro iure nesciunt maiores, eaque cupiditate illum laborum.</p>
+                <a href="{{ path('blog_show', {'id': article.id}) }}" class="btn btn-primary mb-4">Continue reading</a>
+            </div>
+        </article>
+    {% endfor %}
 </section>
 
 {% endblock %}

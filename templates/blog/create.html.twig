@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <h1 class="h1 mt-5">Create an article<h1>
+
+    {{ form_start(formArticle) }}
+        <div class="form-group">
+            <label for="title">Title</label>
+            {{ form_widget(formArticle.title) }}
+        </div>
+        <div class="form-group">
+            <label for="content">Content</label>
+            {{ form_widget(formArticle.content) }}
+        </div>
+        <div class="form-group">
+            <label for="image">Image</label>
+            {{ form_widget(formArticle.image) }}
+        </div>
+
+        <button type="submit" class="btn btn-large btn-success">
+        {% if editMode %}
+            Save changes
+        {% else %}    
+            Submit the article
+        {% endif %}
+        </button>
+    {{ form_end(formArticle)}}
+{% endblock %}
